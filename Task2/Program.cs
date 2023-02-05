@@ -24,6 +24,13 @@ while(isWork)
                 System.Console.Write("Введите число ");
 
                 int a =int.Parse(Console.ReadLine());
+                string s = a.ToString();
+
+                if (s.Length >= 3)
+                {
+                    string result = s[2].ToString();
+                    System.Console.WriteLine(result);
+                } else System.Console.WriteLine("третьей цифры нет");
                 
                 break;
             }
