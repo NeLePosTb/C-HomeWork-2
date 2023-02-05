@@ -35,6 +35,40 @@ while(isWork)
                 break;
             }
 
+            case 3:
+            {
+                System.Console.Write("Введите цифру дня недели ");
+
+                int.TryParse(Console.ReadLine(), out int a);
+                string day = "рабочий день";
+                string holliday = "выходной день";
+
+                if ( a == 1)
+                {
+                    System.Console.WriteLine(day);
+                } else if (a == 2)
+                {
+                    System.Console.WriteLine(day);
+                } else if ( a == 3)
+                {
+                    System.Console.WriteLine(day);
+                } else if (a == 4)
+                {
+                    System.Console.WriteLine(day);
+                } else if (a == 5)
+                {
+                    System.Console.WriteLine(day);
+                } else if (a == 6)
+                {
+                    System.Console.WriteLine(holliday);
+                } else if (a == 7)
+                {
+                    System.Console.WriteLine(holliday);
+                } else System.Console.WriteLine("Число не соотвествует дню недели");
+                
+                break;
+            }
+
             case 0: isWork = false; break;
         }
     }
