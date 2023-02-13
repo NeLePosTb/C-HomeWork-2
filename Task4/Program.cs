@@ -55,6 +55,42 @@ while(isWork)
                 break;
             }
 
+            case 3:
+            {
+                //Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
+                
+                int[] array = createArray(8);
+                print(array);
+                
+
+                int[] createArray(int length)
+                {
+            
+                    int[] array = new int [length];
+                    Random random = new Random();
+                    for (int i = 0; i < length; i++)
+                    {
+                        array[i] = random.Next(0, 100);
+                    }
+                    return array;
+                }
+
+                void print (int[] array)
+                {
+                    System.Console.Write("[");
+                    for (int i = 0; i < array.Length - 1; i++)
+                    {
+                        System.Console.Write($"{array[i]}, ");
+                    }
+                    System.Console.Write($"{array[array.Length - 1]}");
+                    System.Console.WriteLine("]");
+                }
+
+
+
+                break;
+            }
+
             case 0:
             {
                 isWork = false; break;
