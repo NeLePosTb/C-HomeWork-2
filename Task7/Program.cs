@@ -81,14 +81,12 @@ while(isWork)
                 int firstIndex = ReadInt("First Index");
                 int secondIndex = ReadInt("Second Index");
 
-                
-
-                
+                Console.WriteLine(foundElement(array, firstIndex, secondIndex));
 
 
                 int ReadInt (string argument)
                 {
-                    Console.WriteLine($"Введите позицию элимента: ");
+                    Console.Write($"Введите позицию элимента: ");
                     int result = 0;
                     while (!int.TryParse(Console.ReadLine(), out result))
                     {
@@ -119,27 +117,24 @@ while(isWork)
                     {
                         for (int j = 0; j < array.GetLength(1); j++)
                         {
-                            result += $"{array[i, j]} ";
+                            result += $"{array[i, j]} :({i},{j}) ";
                         }
                         result += Environment.NewLine;
                     }
                     return result;
                 }
 
-                // int foundElement(int[,] array)
-                // {
-                //     int[,] result = new int[firstLength, secondLength];
-                    
-                //     int answer = 0;
+                int foundElement(int[,] array, int firstIndex, int secondIndex)
+                {
+                    if(firstIndex >= array.GetLength(0) || secondIndex >= array.GetLength(1))
+                    {
+                        System.Console.WriteLine("Error");
+                    }
 
-                //     for (int  i = 0;  i < length;  i++)
-                //     {
-                        
-                //     }
-                // }
+                    return array[firstIndex, secondIndex];
+                }
 
 
-                
                 break;
             }
 
@@ -152,7 +147,7 @@ while(isWork)
                 int[,] array = CreateTwoDimensionArray(firstLength, secondLength);
                 Console.WriteLine(TwoDimensionArrayToString(array));
 
-                Console.WriteLine($"Среднее арифметическое 1го столбца = {average1} ");
+                average(array);
 
                 int[,] CreateTwoDimensionArray(int firstLength, int secondLength)
                 {
@@ -183,21 +178,19 @@ while(isWork)
                     return result;
                 }
 
-                int average1 (int[,] array)
+                void average (int[,] array)
                 {
-                    int[,] result = new int[firstLength, secondLength];
-                    int average = 0;
-                    int sum = 0;
+                    double sum = 0;
 
-                    for (int i = 0; i < result.GetLength(0); i++)
+                    for (int i = 0; i < array.GetLength(1); i++)
                     {
-                        
-                        sum += result[i, 1];
-                        
+                        for (int j = 0; j < array.GetLength(0); j++)
+                        {
+                            sum += array[j,i];    
+                        }
+                        Console.WriteLine(Math.Round(sum/firstLength, 2)); 
+                        sum = 0; 
                     }
-                    average = sum/firstLength;
-
-                    return average;
                 }
 
                 break;
